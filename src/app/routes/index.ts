@@ -1,4 +1,5 @@
 import express, { Router } from 'express'
+import { authRoutes } from '../modules/auth/auth.routes'
 
 const router = express.Router()
 
@@ -8,7 +9,10 @@ interface ModuleRoute {
 }
 
 const moduleRoutes: ModuleRoute[] = [
-  // routes
+  {
+    path: '/auth',
+    routes: authRoutes,
+  },
 ]
 
 moduleRoutes.forEach(route => router.use(route.path, route.routes))
