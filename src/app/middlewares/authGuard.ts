@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import httpStatus from 'http-status'
-import { Secret } from 'jsonwebtoken'
-import config from '../../config'
+import { envVars } from '../../config'
 import ApiError from '../../errors/ApiError'
 import { jwtHelpers } from '../../helpers/jwtHelpers'
 
@@ -24,10 +23,7 @@ const authGuard =
 
       // Verify token
       let verifiedUser = null
-      verifiedUser = jwtHelpers.verifyToken(
-        accessToken,
-        config.jwt.secret as Secret
-      )
+      verifiedUser = jwtHelpers.verifyToken(accessToken, envVars.JWT_SECRET)
 
       req.user = verifiedUser
 

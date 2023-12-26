@@ -1,7 +1,7 @@
 import { Server } from 'http'
 import mongoose from 'mongoose'
 import app from './app'
-import config from './config'
+import { envVars } from './config'
 import { errorlogger, logger } from './shared/logger'
 
 process.on('uncaughtException', error => {
@@ -13,11 +13,11 @@ let server: Server
 
 async function bootstrap() {
   try {
-    await mongoose.connect(config.database_url as string)
+    await mongoose.connect(envVars.DATABASE_URL as string)
     logger.info(`🛢 Database is connected successfully!`)
 
-    server = app.listen(config.port, () => {
-      logger.info(`Application  listening on port ${config.port}`)
+    server = app.listen(envVars.PORT, () => {
+      logger.info(`Application  listening on port ${envVars.PORT}`)
     })
   } catch (err) {
     errorlogger.error('Failed to connect database', err)

@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\.3be6d587049b0fe433a48c205713634676e7b2f2-audit.json",
+    "files": [
+        {
+            "date": 1703583806772,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-26-12-15-success.log",
+            "hash": "fb9b02c5b0db07a5d876d84fd0bb6b2108e5f6730fe24abffaf0b5ee2c7678ca"
+        },
+        {
+            "date": 1703595082149,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-26-12-18-success.log",
+            "hash": "2a1a22d439286e90f83715ffba64d51bd5eb5ffe1cb0e8d1fc20a8b38658f35f"
+        }
+    ],
+    "hashType": "sha256"
+}
