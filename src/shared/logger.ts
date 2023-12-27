@@ -29,9 +29,9 @@ const logger = createLogger({
       datePattern: 'YYYY-DD-MM-HH',
       zippedArchive: true,
       maxSize: '20m',
-      maxFiles: '14d',
-    }),
-  ],
+      maxFiles: '14d'
+    })
+  ]
 })
 
 const errorlogger = createLogger({
@@ -50,9 +50,9 @@ const errorlogger = createLogger({
       datePattern: 'YYYY-DD-MM-HH',
       zippedArchive: true,
       maxSize: '20m',
-      maxFiles: '14d',
-    }),
-  ],
+      maxFiles: '14d'
+    })
+  ]
 })
 
 export { errorlogger, logger }

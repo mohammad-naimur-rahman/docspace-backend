@@ -6,7 +6,7 @@ const createToken = (
   expireTime: string
 ): string => {
   return jwt.sign(payload, secret, {
-    expiresIn: expireTime,
+    expiresIn: expireTime
   })
 }
 
@@ -16,5 +16,5 @@ const verifyToken = (token: string, secret: Secret): JwtPayload => {
 
 export const jwtHelpers = {
   createToken,
-  verifyToken,
+  verifyToken
 }

@@ -1,10 +1,11 @@
 import httpStatus from 'http-status'
+import { JwtPayload } from 'jsonwebtoken'
 import ApiError from '../../../errors/ApiError'
 import { IFile } from './file.interface'
 import { File } from './file.model'
 
-const createFile = async (payload: IFile): Promise<IFile> => {
-  const createdFile = File.create(payload)
+const createFile = async (payload: IFile, user: JwtPayload): Promise<IFile> => {
+  const createdFile = File.create({ payload, owner: user.userId })
   return createdFile
 }
 
@@ -27,11 +28,8 @@ const updateFile = async (
   return updatedFile
 }
 
-const deleteFile = async (
-  id: string,
-  payload: Partial<IFile>
-): Promise<IFile | null> => {
-  const deletedFile = await File.findByIdAndDelete(id, payload)
+const deleteFile = async (id: string): Promise<IFile | null> => {
+  const deletedFile = await File.findByIdAndDelete(id)
 
   if (!deletedFile) throw new ApiError(httpStatus.NOT_FOUND, 'File not found!')
 

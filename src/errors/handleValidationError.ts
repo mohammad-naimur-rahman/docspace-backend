@@ -9,7 +9,7 @@ const handleValidationError = (
     (el: mongoose.Error.ValidatorError | mongoose.Error.CastError) => {
       return {
         path: el?.path,
-        message: el?.message,
+        message: el?.message
       }
     }
   )
@@ -17,7 +17,7 @@ const handleValidationError = (
   return {
     statusCode,
     message: 'Validation Error',
-    errorMessages: errors,
+    errorMessages: errors
   }
 }
 

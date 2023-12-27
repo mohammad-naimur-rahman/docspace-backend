@@ -13,11 +13,11 @@ const serviceAccount = {
   auth_provider_x509_cert_url:
     envVars.FIREBASE_ADMIN_AUTH_PROVIDER_X509_CERT_URL,
   client_x509_cert_url: envVars.FIREBASE_ADMIN_CLIENT_X509_CERT_URL,
-  universe_domain: envVars.FIREBASE_ADMIN_UNIVERSE_DOMAIN,
+  universe_domain: envVars.FIREBASE_ADMIN_UNIVERSE_DOMAIN
 }
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount as ServiceAccount),
+  credential: admin.credential.cert(serviceAccount as ServiceAccount)
 })
 
 export default admin

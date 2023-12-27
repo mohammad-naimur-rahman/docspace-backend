@@ -15,5 +15,5 @@ const getProfile = async (user: JwtPayload): Promise<IUser | null> => {
 }
 
 export const UserService = {
-  getProfile,
+  getProfile
 }

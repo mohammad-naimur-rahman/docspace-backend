@@ -26,10 +26,10 @@ const calculatePagination = (options: IOptions): IOptionsResult => {
     limit,
     skip,
     sortBy,
-    sortOrder,
+    sortOrder
   }
 }
 
 export const paginationHelpers = {
-  calculatePagination,
+  calculatePagination
 }

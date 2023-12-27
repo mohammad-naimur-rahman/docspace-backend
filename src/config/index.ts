@@ -26,7 +26,7 @@ const envVarSchema = z.object({
   FIREBASE_ADMIN_TOKEN_URI: z.string().nonempty(),
   FIREBASE_ADMIN_AUTH_PROVIDER_X509_CERT_URL: z.string(),
   FIREBASE_ADMIN_CLIENT_X509_CERT_URL: z.string(),
-  FIREBASE_ADMIN_UNIVERSE_DOMAIN: z.string(),
+  FIREBASE_ADMIN_UNIVERSE_DOMAIN: z.string()
 })
 
 export const envVars = envVarSchema.parse(process.env)

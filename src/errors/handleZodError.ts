@@ -6,7 +6,7 @@ const handleZodError = (error: ZodError): IGenericErrorResponse => {
   const errors: IGenericErrorMessage[] = error.issues.map((issue: ZodIssue) => {
     return {
       path: issue?.path[issue.path.length - 1],
-      message: issue?.message,
+      message: issue?.message
     }
   })
 
@@ -15,7 +15,7 @@ const handleZodError = (error: ZodError): IGenericErrorResponse => {
   return {
     statusCode,
     message: 'Validation Error',
-    errorMessages: errors,
+    errorMessages: errors
   }
 }
 

@@ -12,8 +12,8 @@ const userSchema = new Schema<IFile, FileModel>(
       required: true
     },
     parentFolder: {
-      type: String,
-      required: true
+      type: Schema.Types.ObjectId,
+      ref: 'Folder'
     },
     size: {
       type: Number,
@@ -36,6 +36,10 @@ const userSchema = new Schema<IFile, FileModel>(
         'xls'
       ],
       required: true
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
     }
   },
   {

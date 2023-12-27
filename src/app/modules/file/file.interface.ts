@@ -1,8 +1,8 @@
-import { Model } from 'mongoose'
+import { Model, Types } from 'mongoose'
 
 export interface IFile {
   title: string
-  parentFolder: string
+  parentFolder: Types.ObjectId
   size: number
   type:
     | 'doc'
@@ -17,6 +17,7 @@ export interface IFile {
     | 'xlsx'
     | 'xls'
   filePath: string
+  owner: Types.ObjectId
 }
 
 export type FileModel = Model<IFile, Record<string, unknown>>

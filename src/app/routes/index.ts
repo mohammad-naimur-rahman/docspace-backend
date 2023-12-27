@@ -11,8 +11,8 @@ interface ModuleRoute {
 const moduleRoutes: ModuleRoute[] = [
   {
     path: '/auth',
-    routes: authRoutes,
-  },
+    routes: authRoutes
+  }
 ]
 
 moduleRoutes.forEach(route => router.use(route.path, route.routes))

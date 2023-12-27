@@ -8,13 +8,13 @@ import { AuthService } from './auth.service'
 
 const cookieOptions = {
   secure: envVars.NODE_ENV === 'production',
-  httpOnly: true,
+  httpOnly: true
 }
 
 const signupUser = catchAsync(async (req, res) => {
   const {
     headers: { authorization },
-    body,
+    body
   } = req
 
   const authCredentials = await AuthService.signUpUser(authorization, body)
@@ -32,14 +32,14 @@ const signupUser = catchAsync(async (req, res) => {
     success: true,
     statusCode: httpStatus.CREATED,
     message: 'Signin successfull!',
-    data: authCredentials,
+    data: authCredentials
   })
 })
 
 const loginUser = catchAsync(async (req, res) => {
   const {
     headers: { authorization },
-    body,
+    body
   } = req
 
   const authCredentials = await AuthService.loginUser(authorization, body)
@@ -57,7 +57,7 @@ const loginUser = catchAsync(async (req, res) => {
     success: true,
     statusCode: httpStatus.OK,
     message: 'Login successfull!',
-    data: authCredentials,
+    data: authCredentials
   })
 })
 
@@ -73,12 +73,12 @@ const newAccessToken = catchAsync(async (req, res) => {
     success: true,
     statusCode: httpStatus.OK,
     message: 'New access token created successfully!',
-    data: newAccessToken,
+    data: newAccessToken
   })
 })
 
 export const AuthController = {
   signupUser,
   loginUser,
-  newAccessToken,
+  newAccessToken
 }

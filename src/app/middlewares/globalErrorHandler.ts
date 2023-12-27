@@ -47,8 +47,8 @@ const globalErrorHandler: ErrorRequestHandler = (
         path: '',
         message: `There's another ${Object.keys(
           error.keyValue
-        )} already exists with the value ${Object.values(error.keyValue)}`,
-      },
+        )} already exists with the value ${Object.values(error.keyValue)}`
+      }
     ]
   } else if (error?.name === 'CastError') {
     const simplifiedError = handleCastError(error)
@@ -62,8 +62,8 @@ const globalErrorHandler: ErrorRequestHandler = (
       ? [
           {
             path: '',
-            message: error?.message,
-          },
+            message: error?.message
+          }
         ]
       : []
   } else if (error instanceof Error) {
@@ -72,8 +72,8 @@ const globalErrorHandler: ErrorRequestHandler = (
       ? [
           {
             path: '',
-            message: error?.message,
-          },
+            message: error?.message
+          }
         ]
       : []
   }
@@ -82,7 +82,7 @@ const globalErrorHandler: ErrorRequestHandler = (
     success: false,
     message,
     errorMessages,
-    stack: envVars.NODE_ENV !== 'production' ? error?.stack : undefined,
+    stack: envVars.NODE_ENV !== 'production' ? error?.stack : undefined
   })
 }
 

@@ -10,7 +10,7 @@ import {
   IAuthUser,
   ILoginUser,
   IRefreshTokenResponse,
-  ISignupUser,
+  ISignupUser
 } from './auth.interface'
 
 const signUpUser = async (
@@ -34,7 +34,7 @@ const signUpUser = async (
   // Preventing user to set their role to admin
   const data = {
     fullName: payload.fullName,
-    email: payload.email,
+    email: payload.email
   }
 
   const isExist = await User.findOne({ email })
@@ -66,8 +66,8 @@ const signUpUser = async (
     user: createdUser,
     token: {
       accessToken,
-      refreshToken,
-    },
+      refreshToken
+    }
   }
 }
 
@@ -111,8 +111,8 @@ const loginUser = async (
     user,
     token: {
       accessToken,
-      refreshToken,
-    },
+      refreshToken
+    }
   }
 }
 
@@ -143,19 +143,19 @@ const newAccessToken = async (
   const newAccessToken = jwtHelpers.createToken(
     {
       userId,
-      role: isUserExist.role,
+      role: isUserExist.role
     },
     envVars.JWT_SECRET as Secret,
     envVars.JWT_EXPIRES_IN as string
   )
 
   return {
-    accessToken: newAccessToken,
+    accessToken: newAccessToken
   }
 }
 
 export const AuthService = {
   signUpUser,
   loginUser,
-  newAccessToken,
+  newAccessToken
 }
