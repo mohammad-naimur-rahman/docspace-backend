@@ -11,11 +11,12 @@ export interface IFile {
     | 'jpeg'
     | 'pdf'
     | 'png'
-    | 'ppt'
-    | 'pptx'
     | 'txt'
-    | 'xlsx'
-    | 'xls'
+    | 'xslx'
+    | 'xsl'
+    | 'mp4'
+    | 'mp3'
+    | 'csv'
   filePath: string
   owner: Types.ObjectId
 }

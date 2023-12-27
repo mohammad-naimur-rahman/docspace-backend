@@ -5,9 +5,10 @@ export const fileTypesArr = [
   'jpeg',
   'pdf',
   'png',
-  'ppt',
-  'pptx',
   'txt',
-  'xlsx',
-  'xls'
+  'xslx',
+  'xsl',
+  'mp4',
+  'mp3',
+  'csv'
 ]
