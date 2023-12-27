@@ -14,12 +14,14 @@ const userSchema = new Schema<IFile, FileModel>(
     },
     parentFolder: {
       type: Schema.Types.ObjectId,
-      ref: 'Folder'
+      ref: 'Folder',
+      default: 'root',
+      required: true
     },
     size: {
       type: Number,
-      required: true,
-      max: 10
+      max: 10,
+      required: true
     },
     type: {
       type: String,
@@ -28,7 +30,8 @@ const userSchema = new Schema<IFile, FileModel>(
     },
     owner: {
       type: Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'User',
+      required: true
     }
   },
   {

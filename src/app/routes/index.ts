@@ -1,6 +1,7 @@
 import express, { Router } from 'express'
 import { authRoutes } from '../modules/auth/auth.routes'
 import { fileRoutes } from '../modules/file/file.routes'
+import { folderRoutes } from '../modules/folder/folder.routes'
 
 const router = express.Router()
 
@@ -15,8 +16,12 @@ const moduleRoutes: ModuleRoute[] = [
     routes: authRoutes
   },
   {
-    path: '/file',
+    path: '/files',
     routes: fileRoutes
+  },
+  {
+    path: '/folders',
+    routes: folderRoutes
   }
 ]
 
