@@ -1,45 +1,60 @@
 {
-  "keep": {
-    "days": true,
-    "amount": 14
-  },
-  "auditLog": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\.3be6d587049b0fe433a48c205713634676e7b2f2-audit.json",
-  "files": [
-    {
-      "date": 1703583806772,
-      "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-26-12-15-success.log",
-      "hash": "fb9b02c5b0db07a5d876d84fd0bb6b2108e5f6730fe24abffaf0b5ee2c7678ca"
+    "keep": {
+        "days": true,
+        "amount": 14
     },
-    {
-      "date": 1703595082149,
-      "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-26-12-18-success.log",
-      "hash": "2a1a22d439286e90f83715ffba64d51bd5eb5ffe1cb0e8d1fc20a8b38658f35f"
-    },
-    {
-      "date": 1703597774206,
-      "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-26-12-19-success.log",
-      "hash": "c862db2ffffe0ca02d5663b6d193875ec364be2822d1f3591151ca31c15c1145"
-    },
-    {
-      "date": 1703602424250,
-      "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-26-12-20-success.log",
-      "hash": "37468068349eeccef23bee338acc2eacb8b961cec4afa1bfb399ed97a71d4169"
-    },
-    {
-      "date": 1703652524960,
-      "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-27-12-10-success.log",
-      "hash": "80c8bcba28448485d0b7529372320b09b404440912faa6101880529c6e3afce7"
-    },
-    {
-      "date": 1703653762787,
-      "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-27-12-11-success.log",
-      "hash": "993b132f93fecebbefcc2e2fc4ff6715ebb73a16f6f31d8d97d649284d8f9b9d"
-    },
-    {
-      "date": 1703657235472,
-      "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-27-12-12-success.log",
-      "hash": "52d94db86eedddaebcfffd6c16f870d6b20de4cd879d2ae57e59494ab41187a1"
-    }
-  ],
-  "hashType": "sha256"
+    "auditLog": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\.3be6d587049b0fe433a48c205713634676e7b2f2-audit.json",
+    "files": [
+        {
+            "date": 1703583806772,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-26-12-15-success.log",
+            "hash": "fb9b02c5b0db07a5d876d84fd0bb6b2108e5f6730fe24abffaf0b5ee2c7678ca"
+        },
+        {
+            "date": 1703595082149,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-26-12-18-success.log",
+            "hash": "2a1a22d439286e90f83715ffba64d51bd5eb5ffe1cb0e8d1fc20a8b38658f35f"
+        },
+        {
+            "date": 1703597774206,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-26-12-19-success.log",
+            "hash": "c862db2ffffe0ca02d5663b6d193875ec364be2822d1f3591151ca31c15c1145"
+        },
+        {
+            "date": 1703602424250,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-26-12-20-success.log",
+            "hash": "37468068349eeccef23bee338acc2eacb8b961cec4afa1bfb399ed97a71d4169"
+        },
+        {
+            "date": 1703652524960,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-27-12-10-success.log",
+            "hash": "80c8bcba28448485d0b7529372320b09b404440912faa6101880529c6e3afce7"
+        },
+        {
+            "date": 1703653762787,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-27-12-11-success.log",
+            "hash": "993b132f93fecebbefcc2e2fc4ff6715ebb73a16f6f31d8d97d649284d8f9b9d"
+        },
+        {
+            "date": 1703657235472,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-27-12-12-success.log",
+            "hash": "52d94db86eedddaebcfffd6c16f870d6b20de4cd879d2ae57e59494ab41187a1"
+        },
+        {
+            "date": 1703661286797,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-27-12-13-success.log",
+            "hash": "7c6f77ca3bc5ec17cb5d8b991ff46ef442916b3a4efe4a74f4f0664a927e12b3"
+        },
+        {
+            "date": 1703664791689,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-27-12-14-success.log",
+            "hash": "1be2ca0a1f94368f9c2a0598329437692e0272872042c046b331c95c5c9d1c43"
+        },
+        {
+            "date": 1703672352533,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\successes\\phu-2023-27-12-16-success.log",
+            "hash": "8af04ae71b3d4db1cf5787827dbd5d5cf751d89c20bf48e2ba8d53e28e342935"
+        }
+    ],
+    "hashType": "sha256"
 }

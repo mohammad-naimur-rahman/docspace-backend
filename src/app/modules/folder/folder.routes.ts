@@ -9,13 +9,15 @@ const router = Router()
 
 router.use(authGuard(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN))
 
+router.post(
+  '/',
+  validateRequest(FolderValidation.createFolderZSchema),
+  FolderController.createFolder
+)
+
 router
   .route('/:id')
   .get(FolderController.getFolder)
-  .post(
-    validateRequest(FolderValidation.createFolderZSchema),
-    FolderController.createFolder
-  )
   .patch(
     validateRequest(FolderValidation.updateFolderZSchema),
     FolderController.updateFolder

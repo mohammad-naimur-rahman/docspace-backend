@@ -10,8 +10,7 @@ const folderSchema = new Schema<IFolder, FolderModel>(
     parentFolder: {
       type: Schema.Types.ObjectId,
       ref: 'Folder',
-      default: 'root',
-      required: true
+      required: false
     },
     subFolders: [
       {

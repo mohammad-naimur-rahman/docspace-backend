@@ -6,7 +6,7 @@ const createFolderZSchema = z.object({
     parentFolder: z.string(),
     subFolders: z.array(z.string()),
     files: z.array(z.string()),
-    owner: z.string()
+    owner: z.string().optional()
   })
 })
 
