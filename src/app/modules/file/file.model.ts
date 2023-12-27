@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose'
+import { fileTypesArr } from './file.constants'
 import { FileModel, IFile } from './file.interface'
 
 const userSchema = new Schema<IFile, FileModel>(
@@ -22,19 +23,7 @@ const userSchema = new Schema<IFile, FileModel>(
     },
     type: {
       type: String,
-      enum: [
-        'doc',
-        'docx',
-        'jpg',
-        'jpeg',
-        'pdf',
-        'png',
-        'ppt',
-        'pptx',
-        'txt',
-        'xlsx',
-        'xls'
-      ],
+      enum: fileTypesArr,
       required: true
     },
     owner: {
