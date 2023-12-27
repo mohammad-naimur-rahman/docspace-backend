@@ -15,8 +15,7 @@ const userSchema = new Schema<IFile, FileModel>(
     parentFolder: {
       type: Schema.Types.ObjectId,
       ref: 'Folder',
-      default: 'root',
-      required: true
+      required: false
     },
     size: {
       type: Number,

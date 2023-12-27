@@ -9,13 +9,15 @@ const router = Router()
 
 router.use(authGuard(ENUM_USER_ROLE.USER, ENUM_USER_ROLE.ADMIN))
 
+router.post(
+  '/',
+  validateRequest(FileValidation.createFileZSchema),
+  FileController.createFile
+)
+
 router
   .route('/:id')
   .get(FileController.getFile)
-  .post(
-    validateRequest(FileValidation.createFileZSchema),
-    FileController.createFile
-  )
   .patch(
     validateRequest(FileValidation.updateFileZSchema),
     FileController.updateFile

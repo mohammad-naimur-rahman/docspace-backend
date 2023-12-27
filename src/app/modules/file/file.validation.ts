@@ -8,7 +8,7 @@ const createFileZSchema = z.object({
     size: z.number().max(10),
     type: z.enum([...fileTypesArr] as [string, ...string[]]),
     filePath: z.string(),
-    owner: z.string()
+    owner: z.string().optional()
   })
 })
 
