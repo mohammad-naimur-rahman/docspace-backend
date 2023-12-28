@@ -113,19 +113,45 @@ const deleteFolder = async (
   id: string,
   user: JwtPayload
 ): Promise<IFolder | null> => {
-  if (id === 'root') {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Cannot delete root folder!')
+  const session = await startSession()
+  session.startTransaction()
+
+  try {
+    if (id === 'root') {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Cannot delete root folder!')
+    }
+
+    const deletedFolder = await Folder.findOneAndDelete(
+      {
+        _id: id,
+        owner: user.userId
+      },
+      { session }
+    )
+
+    if (!deletedFolder)
+      throw new ApiError(httpStatus.NOT_FOUND, 'Folder not found!')
+
+    const parentFolderId = deletedFolder?.parentFolder
+    if (parentFolderId) {
+      await Folder.findByIdAndUpdate(
+        parentFolderId,
+        {
+          $pull: { subFolders: deletedFolder?._id }
+        },
+        { session }
+      )
+    }
+
+    await session.commitTransaction()
+    session.endSession()
+
+    return deletedFolder
+  } catch (error) {
+    await session.abortTransaction()
+    session.endSession()
+    throw error
   }
-
-  const deletedFolder = await Folder.findOneAndDelete({
-    _id: id,
-    owner: user.userId
-  })
-
-  if (!deletedFolder)
-    throw new ApiError(httpStatus.NOT_FOUND, 'Folder not found!')
-
-  return deletedFolder
 }
 
 export const FolderService = {

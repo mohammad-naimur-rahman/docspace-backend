@@ -6,8 +6,8 @@ export const fileTypesArr = [
   'pdf',
   'png',
   'txt',
-  'xslx',
-  'xsl',
+  'xlsx',
+  'xls',
   'mp4',
   'mp3',
   'csv'

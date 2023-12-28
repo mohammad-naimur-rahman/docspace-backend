@@ -84,6 +84,16 @@
             "date": 1703746864397,
             "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\errors\\phu-2023-28-12-13-error.log",
             "hash": "10cab4a2023d3b1de1dca468089a629c66b05090b57675941fdb15481c20ea56"
+        },
+        {
+            "date": 1703761779303,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\errors\\phu-2023-28-12-17-error.log",
+            "hash": "e2f7e5305ca244ef55dae3a7d5b11325f3680392fb40ea4d976b82bcce31e9a2"
+        },
+        {
+            "date": 1703775891046,
+            "name": "G:\\jobs\\docspace\\docspace-backend\\logs\\winston\\errors\\phu-2023-28-12-21-error.log",
+            "hash": "15f999e8aed341a2d2cedb78b135e37f00032cfe122d065f991e8f1c425703da"
         }
     ],
     "hashType": "sha256"

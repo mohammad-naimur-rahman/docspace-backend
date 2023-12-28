@@ -93,14 +93,41 @@ const deleteFile = async (
   id: string,
   user: JwtPayload
 ): Promise<IFile | null> => {
-  const deletedFile = await File.findOneAndDelete({
-    _id: id,
-    owner: user.userId
-  })
+  const session = await startSession()
+  session.startTransaction()
 
-  if (!deletedFile) throw new ApiError(httpStatus.NOT_FOUND, 'File not found!')
+  try {
+    const deletedFile = await File.findOneAndDelete(
+      {
+        _id: id,
+        owner: user.userId
+      },
+      { session }
+    )
 
-  return deletedFile
+    if (!deletedFile)
+      throw new ApiError(httpStatus.NOT_FOUND, 'File not found!')
+
+    const { parentFolder } = deletedFile
+    if (parentFolder) {
+      await Folder.findByIdAndUpdate(
+        parentFolder,
+        {
+          $pull: { files: deletedFile._id }
+        },
+        { session }
+      )
+    }
+
+    await session.commitTransaction()
+    session.endSession()
+
+    return deletedFile
+  } catch (error) {
+    await session.abortTransaction()
+    session.endSession()
+    throw error
+  }
 }
 
 export const FileService = {
