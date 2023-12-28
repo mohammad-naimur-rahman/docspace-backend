@@ -4,8 +4,8 @@ const createFolderZSchema = z.object({
   body: z.object({
     title: z.string(),
     parentFolder: z.string(),
-    subFolders: z.array(z.string()),
-    files: z.array(z.string()),
+    subFolders: z.array(z.string()).optional(),
+    files: z.array(z.string()).optional(),
     owner: z.string().optional()
   })
 })

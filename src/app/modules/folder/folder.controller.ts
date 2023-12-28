@@ -18,7 +18,10 @@ const createFolder = catchAsync(async (req, res) => {
 })
 
 const getFolder = catchAsync(async (req, res) => {
-  const folder = await FolderService.getFolder(req.params.id)
+  const folder = await FolderService.getFolder(
+    req.params.id,
+    (req as RequestWithUser).user
+  )
   sendResponse<IFolder>(res, {
     statusCode: httpStatus.OK,
     data: folder,
@@ -29,7 +32,8 @@ const getFolder = catchAsync(async (req, res) => {
 const updateFolder = catchAsync(async (req, res) => {
   const updatedFolder = await FolderService.updateFolder(
     req.params.id,
-    req.body
+    req.body,
+    (req as RequestWithUser).user
   )
   sendResponse<IFolder>(res, {
     statusCode: httpStatus.OK,
@@ -39,7 +43,10 @@ const updateFolder = catchAsync(async (req, res) => {
 })
 
 const deleteFolder = catchAsync(async (req, res) => {
-  const deletedFolder = await FolderService.deleteFolder(req.params.id)
+  const deletedFolder = await FolderService.deleteFolder(
+    req.params.id,
+    (req as RequestWithUser).user
+  )
   sendResponse<IFolder>(res, {
     statusCode: httpStatus.OK,
     data: deletedFolder,

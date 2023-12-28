@@ -18,7 +18,10 @@ const createFile = catchAsync(async (req, res) => {
 })
 
 const getFile = catchAsync(async (req, res) => {
-  const file = await FileService.getFile(req.params.id)
+  const file = await FileService.getFile(
+    req.params.id,
+    (req as RequestWithUser).user
+  )
   sendResponse<IFile>(res, {
     statusCode: httpStatus.OK,
     data: file,
@@ -27,7 +30,11 @@ const getFile = catchAsync(async (req, res) => {
 })
 
 const updateFile = catchAsync(async (req, res) => {
-  const updatedFile = await FileService.updateFile(req.params.id, req.body)
+  const updatedFile = await FileService.updateFile(
+    req.params.id,
+    req.body,
+    (req as RequestWithUser).user
+  )
   sendResponse<IFile>(res, {
     statusCode: httpStatus.OK,
     data: updatedFile,
@@ -36,7 +43,10 @@ const updateFile = catchAsync(async (req, res) => {
 })
 
 const deleteFile = catchAsync(async (req, res) => {
-  const deletedFile = await FileService.deleteFile(req.params.id)
+  const deletedFile = await FileService.deleteFile(
+    req.params.id,
+    (req as RequestWithUser).user
+  )
   sendResponse<IFile>(res, {
     statusCode: httpStatus.OK,
     data: deletedFile,

@@ -65,14 +65,20 @@ const createFolder = async (
   }
 }
 
-const getFolder = async (id: string): Promise<IFolder | null> => {
+const getFolder = async (
+  id: string,
+  user: JwtPayload
+): Promise<IFolder | null> => {
   if (id === 'root') {
-    const rootFolder = await Folder.findOne({ title: 'root' })
+    const rootFolder = await Folder.findOne({
+      title: 'root',
+      owner: user.userId
+    })
       .populate('subFolders')
       .populate('files')
     return rootFolder
   } else {
-    const folder = await Folder.findById(id)
+    const folder = await Folder.findOne({ _id: id, owner: user.userId })
       .populate('subFolders')
       .populate('files')
     return folder
@@ -81,16 +87,21 @@ const getFolder = async (id: string): Promise<IFolder | null> => {
 
 const updateFolder = async (
   id: string,
-  payload: Partial<IFolder>
+  payload: Partial<IFolder>,
+  user: JwtPayload
 ): Promise<IFolder | null> => {
   if (id === 'root') {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Cannot update root folder!')
   }
 
-  const updatedFolder = await Folder.findByIdAndUpdate(id, payload, {
-    runValidators: true,
-    new: true
-  })
+  const updatedFolder = await Folder.findOneAndUpdate(
+    { _id: id, owner: user.userId },
+    payload,
+    {
+      runValidators: true,
+      new: true
+    }
+  )
 
   if (!updatedFolder)
     throw new ApiError(httpStatus.NOT_FOUND, 'Folder not found!')
@@ -98,12 +109,18 @@ const updateFolder = async (
   return updatedFolder
 }
 
-const deleteFolder = async (id: string): Promise<IFolder | null> => {
+const deleteFolder = async (
+  id: string,
+  user: JwtPayload
+): Promise<IFolder | null> => {
   if (id === 'root') {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Cannot delete root folder!')
   }
 
-  const deletedFolder = await Folder.findByIdAndDelete(id)
+  const deletedFolder = await Folder.findOneAndDelete({
+    _id: id,
+    owner: user.userId
+  })
 
   if (!deletedFolder)
     throw new ApiError(httpStatus.NOT_FOUND, 'Folder not found!')

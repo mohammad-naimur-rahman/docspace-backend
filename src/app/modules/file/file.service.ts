@@ -65,27 +65,38 @@ const createFile = async (payload: IFile, user: JwtPayload): Promise<IFile> => {
   }
 }
 
-const getFile = async (id: string): Promise<IFile | null> => {
-  const file = await File.findById(id)
+const getFile = async (id: string, user: JwtPayload): Promise<IFile | null> => {
+  const file = await File.findOne({ _id: id, owner: user.userId })
   return file
 }
 
 const updateFile = async (
   id: string,
-  payload: Partial<IFile>
+  payload: Partial<IFile>,
+  user: JwtPayload
 ): Promise<IFile | null> => {
-  const updatedFile = await File.findByIdAndUpdate(id, payload, {
-    runValidators: true,
-    new: true
-  })
+  const updatedFile = await File.findOneAndUpdate(
+    { _id: id, owner: user.userId },
+    payload,
+    {
+      runValidators: true,
+      new: true
+    }
+  )
 
   if (!updatedFile) throw new ApiError(httpStatus.NOT_FOUND, 'File not found!')
 
   return updatedFile
 }
 
-const deleteFile = async (id: string): Promise<IFile | null> => {
-  const deletedFile = await File.findByIdAndDelete(id)
+const deleteFile = async (
+  id: string,
+  user: JwtPayload
+): Promise<IFile | null> => {
+  const deletedFile = await File.findOneAndDelete({
+    _id: id,
+    owner: user.userId
+  })
 
   if (!deletedFile) throw new ApiError(httpStatus.NOT_FOUND, 'File not found!')
 
