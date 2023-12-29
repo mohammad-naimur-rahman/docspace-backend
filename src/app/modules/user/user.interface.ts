@@ -5,6 +5,7 @@ export interface IUser {
   fullName: string
   email: string
   role: string
+  profilePicture?: string
 }
 
 export type UserModel = Model<IUser, Record<string, unknown>>

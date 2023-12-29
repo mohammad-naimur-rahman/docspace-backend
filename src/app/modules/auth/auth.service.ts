@@ -34,7 +34,8 @@ const signUpUser = async (
   // Preventing user to set their role to admin
   const data = {
     fullName: payload.fullName,
-    email: payload.email
+    email: payload.email,
+    role: 'user'
   }
 
   const isExist = await User.findOne({ email })

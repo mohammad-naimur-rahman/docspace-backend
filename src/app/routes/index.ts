@@ -2,6 +2,7 @@ import express, { Router } from 'express'
 import { authRoutes } from '../modules/auth/auth.routes'
 import { fileRoutes } from '../modules/file/file.routes'
 import { folderRoutes } from '../modules/folder/folder.routes'
+import { userRoutes } from '../modules/user/user.routes'
 
 const router = express.Router()
 
@@ -22,6 +23,10 @@ const moduleRoutes: ModuleRoute[] = [
   {
     path: '/folders',
     routes: folderRoutes
+  },
+  {
+    path: '/users',
+    routes: userRoutes
   }
 ]
 

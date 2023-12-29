@@ -4,6 +4,7 @@ import { JwtPayload } from 'jsonwebtoken'
 import { startSession } from 'mongoose'
 import ApiError from '../../../errors/ApiError'
 import { Folder } from '../folder/folder.model'
+import { fileTypesArr } from './file.constants'
 import { IFile } from './file.interface'
 import { File } from './file.model'
 
@@ -11,6 +12,10 @@ const createFile = async (payload: IFile, user: JwtPayload): Promise<IFile> => {
   const session = await startSession()
   session.startTransaction()
   try {
+    if (!fileTypesArr.includes(payload.type)) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'File type not supported!')
+    }
+
     const { parentFolder } = payload
     let parentFolderId
 

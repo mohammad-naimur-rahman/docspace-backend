@@ -9,7 +9,8 @@ const loginUserZSchema = z.object({
 const signupUserZSchema = z.object({
   body: z.object({
     fullName: z.string(),
-    email: z.string().email()
+    email: z.string().email(),
+    profilePicture: z.string().optional()
   })
 })
 
