@@ -29,6 +29,18 @@ const getFile = catchAsync(async (req, res) => {
   })
 })
 
+const getFiles = catchAsync(async (req, res) => {
+  const files = await FileService.getFiles(
+    req.query,
+    (req as RequestWithUser).user
+  )
+  sendResponse<IFile[]>(res, {
+    statusCode: httpStatus.OK,
+    data: files,
+    message: 'Files retrieved successfully!'
+  })
+})
+
 const updateFile = catchAsync(async (req, res) => {
   const updatedFile = await FileService.updateFile(
     req.params.id,
@@ -57,6 +69,7 @@ const deleteFile = catchAsync(async (req, res) => {
 export const FileController = {
   createFile,
   getFile,
+  getFiles,
   updateFile,
   deleteFile
 }

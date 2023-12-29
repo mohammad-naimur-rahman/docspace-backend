@@ -75,6 +75,25 @@ const getFile = async (id: string, user: JwtPayload): Promise<IFile | null> => {
   return file
 }
 
+const getFiles = async (
+  query: unknown,
+  user: JwtPayload
+): Promise<IFile[] | null> => {
+  const search = (query as { search: string }).search
+  if (search === '') {
+    return []
+  }
+
+  const files = await File.find({
+    title: {
+      $regex: new RegExp(search),
+      $options: 'i'
+    },
+    owner: user.userId
+  })
+  return files
+}
+
 const updateFile = async (
   id: string,
   payload: Partial<IFile>,
@@ -138,6 +157,7 @@ const deleteFile = async (
 export const FileService = {
   createFile,
   getFile,
+  getFiles,
   updateFile,
   deleteFile
 }

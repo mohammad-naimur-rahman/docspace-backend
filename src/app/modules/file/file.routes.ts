@@ -15,6 +15,8 @@ router.post(
   FileController.createFile
 )
 
+router.get('/search', FileController.getFiles)
+
 router
   .route('/:id')
   .get(FileController.getFile)
